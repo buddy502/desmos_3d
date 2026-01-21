@@ -1,2 +1,6 @@
-build/main.o: src/main.c src/../include/glfwEvents.h
-src/../include/glfwEvents.h:
+build/main.o: src/main.c src/./glfwEvents.h src/././window.h \
+ src/./././common.h src/./window.h
+src/./glfwEvents.h:
+src/././window.h:
+src/./././common.h:
+src/./window.h:

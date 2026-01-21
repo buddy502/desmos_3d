@@ -1,7 +1,7 @@
 CC := gcc
 CFLAGS := -Wall -Wextra -g -O2 -I. -Iinclude -I/usr/include/freetype2 -MMD -MP
 
-LIBS := -lGLEW -lGL -lglfw -lGLU -ldl -lfreetype
+LIBS := -lGLEW -lGL -lglfw -lGLU -ldl -lfreetype -lm
 
 TARGET := main
 BUILD_DIR := build

@@ -24,12 +24,17 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     size->win_height = height;
 }
 
-void render_window_pixels(GL_window_s gl_window, Camera camera) {
+void render_window_pixels(GLFWwindow* glfwwindow, GL_window_s gl_window, Camera camera) {
    Vec3f* pixels = initialize_pixels(gl_window);
 
    float aspect_ratio = (float)gl_window.win_width / (float)gl_window.win_height;
    float scale = tan((camera.fov/2.0));
 
+   glViewport(0, 0, gl_window.win_width, gl_window.win_height);
+
+   glClear(GL_CLEAR_BUFFER);
+
+   glBegin(GL_POINTS);
    for (int i = 0; i < gl_window.win_height; i++) {
       for (int j = 0; j < gl_window.win_width; j++) {
 
@@ -46,4 +51,5 @@ void render_window_pixels(GL_window_s gl_window, Camera camera) {
          glVertex2f(x, y);
       }
    }
+   glEnd();
 }

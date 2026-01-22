@@ -17,11 +17,10 @@ void main_events(GLFWwindow* glfwwindow, GL_window_s gl_window, Camera camera) {
    //glViewport(1920/2, 1080/2, 800, 600);
 
    while (!glfwWindowShouldClose(glfwwindow)) {
-      glfwSwapBuffers(glfwwindow);
 
-      render_window_pixels(glfwwindow, gl_window, camera);
+      render_window_pixels(gl_window, camera);
+
       glfwPollEvents();
-
       glfw_poll_events(glfwwindow);
    }
 

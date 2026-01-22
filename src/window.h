@@ -7,6 +7,9 @@
 
 #define MAX_VIEWPORTS 25
 
+#define WIN_WIDTH 800
+#define WIN_HEIGHT 600
+
 typedef struct {
    int win_width;
    int win_height;
@@ -23,6 +26,6 @@ typedef struct {
 } Camera;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void render_window_pixels(GLFWwindow* glfwwindow, GL_window_s gl_window, Camera camera);
+void render_window_pixels(GL_window_s gl_window, Camera camera);
 
 #endif

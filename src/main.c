@@ -20,16 +20,17 @@ static void GLClearError() {
 
 static bool GLLogCall(const char* function, const char* file, int line) {
    // convert to words
-   while (GLenum error = glGetError()) {
+   GLenum error = glGetError();
+   while (error) {
       const GLubyte* errString = gluErrorString(error);
-      printf("OpenGL Error (%p): %p %p: %d", errString, function, file, line)
+      printf("OpenGL Error (%p): %p %p: %d", errString, function, file, line);
 
       return false;
    }
    return true;
 }
 
-static GL_window_s gl_window = {0};
+static GL_window_s gl_window = {WIN_WIDTH, WIN_HEIGHT, {0}};
 static Camera camera = {0};
 
 int main() {
@@ -44,8 +45,10 @@ int main() {
       return 1;
    }
 
+
    glfwGetWindowSize(glfwwindow, &gl_window.win_width, &gl_window.win_height);
 
+   glfwSetWindowUserPointer(glfwwindow, &gl_window);
    glfwSetFramebufferSizeCallback(glfwwindow, framebuffer_size_callback);
 
    main_events(glfwwindow, gl_window, camera);

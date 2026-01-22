@@ -1,10 +1,10 @@
 #include "./common.h"
 
-GL_color3f_s convert_to_rgb(float r, float g, float b) {
-   GL_color3f_s color = {
-      CLAMP(r, 0.0, 1.0),
-      CLAMP(g, 0.0, 1.0),
-      CLAMP(b, 0.0, 1.0),
+PixelRGB convert_to_rgb(PixelRGB* pixels) {
+   PixelRGB color = {
+      (unsigned char)(255.0 * CLAMP(pixels->r, 0.0, 1.0)),
+      (unsigned char)(255.0 * CLAMP(pixels->g, 0.0, 1.0)),
+      (unsigned char)(255.0 * CLAMP(pixels->b, 0.0, 1.0)),
    };
    return color;
 }

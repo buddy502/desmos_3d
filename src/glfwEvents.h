@@ -5,7 +5,7 @@
 
 #include "./window.h"
 
-void main_events(GLFWwindow* glfwwindow, GL_window_s gl_window, Camera camera);
+void main_events(GLFWwindow* glfwwindow, GL_window_s* gl_window, Camera* camera);
 void glfw_poll_events(GLFWwindow* window);
 
 #endif

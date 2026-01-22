@@ -26,6 +26,6 @@ typedef struct {
 } Camera;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void render_window_pixels(GL_window_s gl_window, Camera camera);
+void render_window_pixels(GL_window_s* gl_window, Camera* camera, PixelRGB* framebuffer);
 
 #endif

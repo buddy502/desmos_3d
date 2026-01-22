@@ -6,10 +6,10 @@
 #define CLAMP(x, min, max) ((x) < (min) ? (min) : ((x) > (max) ? (max) : (x)))
 
 typedef struct {
-   GLuint red;
-   GLuint green;
-   GLuint blue;
-} GL_color3f_s;
+   unsigned char r;
+   unsigned char g;
+   unsigned char b;
+} PixelRGB;
 
 typedef struct {
    float x;
@@ -17,6 +17,6 @@ typedef struct {
    float z;
 } Vec3f;
 
-GL_color3f_s convert_to_rgb(float r, float g, float b);
+PixelRGB convert_to_rgb(PixelRGB* pixels);
 
 #endif

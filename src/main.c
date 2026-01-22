@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
 
 #include <GLFW/glfw3.h>
 #include <GL/gl.h>
@@ -9,6 +8,7 @@
 #include "./glfwEvents.h"
 #include "./window.h"
 
+/*
 #define ASSERT(x) if (!(x)) __builtin_trap();
 #define GLCall(x) GLClearError();\
    x;\
@@ -29,14 +29,15 @@ static bool GLLogCall(const char* function, const char* file, int line) {
    }
    return true;
 }
-
-static GL_window_s gl_window = {WIN_WIDTH, WIN_HEIGHT, {0}};
-static Camera camera = {0};
+*/
 
 int main() {
    if (!glfwInit()) {
       return 1;
    }
+
+   GL_window_s gl_window = {WIN_WIDTH, WIN_HEIGHT, {0}};
+   Camera camera = {0};
 
    GLFWwindow* glfwwindow = glfwCreateWindow(gl_window.win_width, gl_window.win_height,
          "desmos", NULL, NULL);
@@ -45,13 +46,12 @@ int main() {
       return 1;
    }
 
-
    glfwGetWindowSize(glfwwindow, &gl_window.win_width, &gl_window.win_height);
 
    glfwSetWindowUserPointer(glfwwindow, &gl_window);
    glfwSetFramebufferSizeCallback(glfwwindow, framebuffer_size_callback);
 
-   main_events(glfwwindow, gl_window, camera);
+   main_events(glfwwindow, &gl_window, &camera);
 
    return 0;
 }

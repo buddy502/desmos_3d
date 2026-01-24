@@ -17,15 +17,7 @@ typedef struct {
    GLint viewports[MAX_VIEWPORTS];
 } GL_window_s;
 
-// TODO: zoom does not affect zoom in on cube just
-//       the zoom on the actual graph in the cube
-typedef struct {
-   float fov;
-   Vec3f origin;
-   Vec3f direction;
-} Camera;
-
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void render_window_pixels(GL_window_s* gl_window, Camera* camera, PixelRGB* framebuffer);
+void render_window_pixels(GL_window_s* gl_window, Camera* camera);
 
 #endif
